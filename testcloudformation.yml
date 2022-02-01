@@ -8,3 +8,13 @@ Resources:
       Tags:
         - Key: Name
           Value: testCloudFormation
+
+  subnetName:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-northeast-1a'
+      VpcId: !Ref myVPC
+      CidrBlock: 10.0.8.0/24
+      Tags:
+        - Key: Name
+          Value: testSubnet
