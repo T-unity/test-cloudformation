@@ -18,3 +18,18 @@ Resources:
       Tags:
         - Key: Name
           Value: testSubnet
+
+  secGroupName:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: GN-SG
+      GroupDescription: GD-SG
+      VpcId: !Ref myVPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: testSG
