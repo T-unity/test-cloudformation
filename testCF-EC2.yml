@@ -3,16 +3,13 @@ Resources:
   myEC2Instance:
     Type: AWS::EC2::Instance
     Properties:
-      KeyName: 
-      DisableApiTermination: 
-      ImageId: 
-      InstanceType: 
-      Monitoring: true|false
+      KeyName: test-admin
+      ImageId: #ami-idを入力
+      InstanceType: t2.micro
+      Monitoring: false
       SecurityGroupIds:
-        - sg-id
-      UserData: !Base64 |
-        #!/bin/bash -ex
-        # put your script here
+        - !ImportValue testCF-SG
+      SubnetId: !ImportValue testCF-subnet
       Tags:
-        - Key: key
-          Value: value
+        - Key: Name
+          Value: test-EC2

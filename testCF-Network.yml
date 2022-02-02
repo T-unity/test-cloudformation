@@ -33,3 +33,14 @@ Resources:
       Tags:
         - Key: Name
           Value: testSG
+
+Outputs:
+  Subnet1:
+    Value: !Ref subnetName
+    Export:
+      Name: testCF-subnet
+
+  SG1:
+    Value: !Ref secGroupName
+    Export:
+      Name: testCF-SG
